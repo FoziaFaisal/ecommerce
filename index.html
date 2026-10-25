@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FF E-commerce Luxury Store | Branded Bags, Shoes & Accessories</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#0b0908;--wine2:#1d1710;--blush:#15110d;--paper:#0f0c0a;--brass:#c9a45c;--ink:#f1e8d8;--mute:#a39683}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{font-family:Manrope,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.1}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:20;background:rgba(11,9,8,.96);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;letter-spacing:.04em}
+nav{display:flex;gap:26px;align-items:center;font-size:.95rem}
+nav a:hover{color:var(--brass)}
+.cartbtn{background:var(--brass);border:0;color:#fff;padding:9px 18px;border-radius:30px;font:700 .9rem Manrope;cursor:pointer}
+.hero{background:linear-gradient(115deg,var(--wine) 55%,var(--wine2));color:#fff;padding:90px 5vw 70px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.8rem,6vw,5.2rem);font-weight:700}
+.hero p{max-width:480px;margin:20px 0 28px;color:#e9d6d6}
+.btn{display:inline-block;background:var(--brass);color:#fff;padding:14px 32px;border-radius:40px;font-weight:700;border:0;cursor:pointer;font-family:Manrope}
+.btn:hover{filter:brightness(1.1)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tile{aspect-ratio:1;border-radius:60px 8px 60px 8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:2.2rem;cursor:pointer;transition:.25s}
+.tile span{font-size:.75rem;margin-top:4px;color:#e9d6d6}
+.tile:hover{background:var(--brass);transform:translateY(-4px)}
+section{padding:80px 5vw}
+.sec-title{text-align:center;margin-bottom:36px}.sec-title h2{font-size:clamp(2rem,4vw,3.2rem)}.sec-title p{color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:36px}
+.chip{border:1px solid var(--wine);background:none;color:var(--wine);padding:8px 20px;border-radius:30px;cursor:pointer;font:500 .9rem Manrope}
+.chip.on,.chip:hover{background:var(--wine);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:26px}
+.card{background:#fff;border-radius:6px 28px 6px 28px;overflow:hidden;box-shadow:0 6px 24px rgba(58,15,30,.08);transition:.25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 34px rgba(58,15,30,.18)}
+.ph{aspect-ratio:1;background:linear-gradient(135deg,var(--blush),#ecd3cd);display:flex;align-items:center;justify-content:center;font-size:3.4rem;position:relative}
+.ph img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.tag{position:absolute;top:12px;left:12px;background:var(--wine);color:#fff;font-size:.72rem;padding:3px 12px;border-radius:20px;z-index:2}
+.tag.low{background:#c0392b}
+.info{padding:16px 18px 20px;display:flex;flex-direction:column;gap:4px;flex:1}
+.info small{color:var(--mute)}.info h3{font-size:1.4rem}
+.price{font-weight:700;color:var(--wine);font-size:1.1rem}
+.info button{margin-top:auto;border:1px solid var(--wine);background:none;color:var(--wine);padding:10px;border-radius:30px;font:700 .85rem Manrope;cursor:pointer}
+.info button:hover:not(:disabled){background:var(--wine);color:#fff}
+.info button:disabled{opacity:.45;cursor:not-allowed}
+.about{background:var(--blush);display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about h2{font-size:3rem;margin-bottom:16px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feat div{background:#fff;padding:20px;border-radius:20px 4px 20px 4px}.feat b{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--wine)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1000px;margin:auto}
+input,textarea{width:100%;padding:12px 14px;border:1px solid #d9c6c2;border-radius:10px;font:inherit;margin-bottom:12px;background:#fff}
+input:focus,textarea:focus{outline:2px solid var(--brass)}
+footer{background:var(--wine);color:#d9c3c3;padding:50px 5vw 24px;text-align:center}
+footer .logo{color:#fff;margin-bottom:8px}.flinks{display:flex;gap:24px;justify-content:center;margin:16px 0}
+#drawer{position:fixed;top:0;right:-440px;width:min(420px,100%);height:100%;background:#fff;z-index:50;transition:.3s;box-shadow:-10px 0 40px rgba(0,0,0,.2);display:flex;flex-direction:column;padding:22px}
+#drawer.open{right:0}
+.dhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.dhead h2{font-size:2rem}
+.x{background:none;border:0;font-size:1.8rem;cursor:pointer}
+#items{flex:1;overflow:auto}
+.line{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #eee;gap:8px;font-size:.92rem}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--wine);background:none;cursor:pointer}
+#toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--wine);color:#fff;padding:12px 26px;border-radius:30px;z-index:99;transition:.3s}
+#toast.show{transform:translateX(-50%)}
+@media(max-width:800px){.hero,.about,.contact{grid-template-columns:1fr}nav a{display:none}}
+
+header{border-bottom:1px solid rgba(201,164,92,.35)}
+.logo{color:var(--brass)}
+.hero{background:radial-gradient(circle at 80% 20%,#2a2014,#0b0908 60%)}
+.hero p{color:#cbbfa9}.btn,.cartbtn{color:#14100b;letter-spacing:.04em}
+.tile{border-color:rgba(201,164,92,.4);background:rgba(201,164,92,.05)}.tile:hover{color:#14100b}.tile:hover span{color:#14100b}
+.sec-title h2,.about h2{color:var(--brass);letter-spacing:.03em}
+.chip{border-color:rgba(201,164,92,.5);color:var(--brass)}.chip.on,.chip:hover{background:var(--brass);color:#14100b}
+.card{background:#17130f;border:1px solid rgba(201,164,92,.25);box-shadow:none}
+.card:hover{border-color:var(--brass);box-shadow:0 14px 34px rgba(0,0,0,.6)}
+.ph{background:linear-gradient(135deg,#241d15,#120f0b)}
+.tag{background:var(--brass);color:#14100b}.tag.low{background:#8c2f2f;color:#fff}
+.price{color:var(--brass)}.info button{border-color:var(--brass);color:var(--brass)}.info button:hover:not(:disabled){background:var(--brass);color:#14100b}
+.feat div{background:#1d1710;border:1px solid rgba(201,164,92,.2)}.feat b{color:var(--brass)}
+input,textarea{background:#17130f;color:var(--ink);border-color:rgba(201,164,92,.35)}
+footer{background:#080605;border-top:1px solid rgba(201,164,92,.35)}footer .logo{color:var(--brass)}
+#drawer{background:#14100c;color:var(--ink);border-left:1px solid var(--brass)}.line{border-color:#2a2218}.x{color:var(--brass)}
+.qty button{border-color:var(--brass);color:var(--brass)}
+#toast{background:var(--brass);color:#14100b;font-weight:700}
+
+.logo{font-size:1.9rem;display:flex;align-items:baseline;gap:8px;background:linear-gradient(90deg,#f6e3b0,#c9a45c,#8d6b2c,#f6e3b0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo small{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;font-family:Manrope;font-weight:500}
+.badge{display:inline-block;border:1px solid var(--brass);color:var(--brass);padding:6px 18px;border-radius:30px;font-size:.78rem;letter-spacing:.18em;margin-bottom:22px}
+.hero h1{background:linear-gradient(100deg,#fff 20%,#f0d9a0 55%,#c9a45c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 i{font-style:italic;color:var(--brass);-webkit-text-fill-color:var(--brass)}
+.btn{background:linear-gradient(135deg,#f0d9a0,#c9a45c 50%,#9a7430);box-shadow:0 8px 24px rgba(201,164,92,.28)}
+.btn.ghost{background:none;border:1px solid var(--brass);color:var(--brass);box-shadow:none;margin-left:10px}
+.hero{position:relative;overflow:hidden}.hero:after{content:"";position:absolute;inset:18px;border:1px solid rgba(201,164,92,.25);border-radius:4px;pointer-events:none}
+.tile{border-radius:80px 10px 80px 10px;font-size:2.6rem;box-shadow:inset 0 0 30px rgba(201,164,92,.08)}
+.tile:hover{background:linear-gradient(135deg,#f0d9a0,#c9a45c)}
+.strip{background:var(--brass);color:#14100b;overflow:hidden;white-space:nowrap;padding:12px 0;font-weight:700;letter-spacing:.14em;font-size:.82rem}
+.mq{display:inline-block;animation:mq 28s linear infinite}.mq span{margin:0 34px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.sec-title h2:after{content:"";display:block;width:90px;height:2px;margin:14px auto 0;background:linear-gradient(90deg,transparent,var(--brass),transparent)}
+.ph{font-size:4rem;transition:.4s}.card:hover .ph{transform:scale(1.04)}.card .ph{overflow:hidden}
+.card{border-radius:4px 34px 4px 34px}
+.info h3{color:#f6e8c8}
+@media(prefers-reduced-motion:reduce){.mq{animation:none}}
+</style></head><body>
+<header><a href="#home" class="logo">FF <small>E-commerce Luxury Store</small></a>
+<nav><a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">About Product</a><a href="#contact">Contact</a>
+<button class="cartbtn" onclick="openCart()">Cart (<span id="cc">0</span>)</button></nav></header>
+
+<div class="hero" id="home"><div>
+<div class="badge">✦ Authentic Luxury · Since 2026 ✦</div><h1>Luxury you can <i>carry</i>, wear &amp; keep.</h1>
+<p>Authentic branded handbags, shoes, belts, jackets, jewellery and sunglasses, delivered to your door.</p>
+<a class="btn" href="#shop">Shop the collection</a> <a class="btn ghost" href="#about">Why FF Luxury</a></div>
+<div class="tiles" id="tiles"></div></div>
+
+<div class="strip"><div class="mq"><span>✦ 100% AUTHENTIC</span><span>✦ FREE DELIVERY ABOVE Rs. 15,000</span><span>✦ CASH ON DELIVERY</span><span>✦ 7-DAY RETURNS</span><span>✦ 100% AUTHENTIC</span><span>✦ FREE DELIVERY ABOVE Rs. 15,000</span><span>✦ CASH ON DELIVERY</span><span>✦ 7-DAY RETURNS</span></div></div>
+<section id="shop"><div class="sec-title"><h2>Our Collection</h2><p>20 hand-picked pieces. Limited stock.</p></div>
+<div class="chips" id="chips"></div><div class="grid" id="grid"><p>Loading products…</p></div></section>
+
+<section class="about" id="about"><div><h2>About our products</h2>
+<p>Every piece is sourced from authorised suppliers and checked by our team before it ships. Real leather, polished metals and UV-protective lenses, with a clear return window if something is not right.</p></div>
+<div class="feat"><div><b>100% Authentic</b><br>Checked before dispatch</div><div><b>Free Delivery</b><br>On orders above Rs. 15,000</div><div><b>Easy Returns</b><br>7-day return policy</div><div><b>Cash on Delivery</b><br>Pay when you receive</div></div></section>
+
+<section id="contact"><div class="sec-title"><h2>Contact us</h2><p>Questions about an order or a product? Write to us.</p></div>
+<div class="contact"><div><h3 style="font-size:1.8rem">Get in touch</h3><p style="margin-top:10px">📍 Karachi, Pakistan<br>📞 +92 300 0000000<br>✉️ hello@ffluxurystore.com<br>🕒 Mon–Sat, 10am–8pm</p></div>
+<div><input id="cn" placeholder="Your name"><input id="ce" placeholder="Email or phone"><textarea id="cm" rows="4" placeholder="Your message"></textarea>
+<button class="btn" onclick="sendMsg()">Send message</button></div></div></section>
+
+<footer><div class="logo">FF <small>E-commerce Luxury Store</small></div><div>Branded fashion, delivered with care.</div>
+<div class="flinks"><a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+<small>© 2026 FF E-commerce Luxury Store. All rights reserved.</small></footer>
+
+<div id="drawer"><div class="dhead"><h2>Your cart</h2><button class="x" onclick="closeCart()">×</button></div>
+<div id="items"></div><div id="total" style="font-weight:700;margin:12px 0"></div>
+<div id="form"><input id="n" placeholder="Full name"><input id="p" placeholder="Phone number"><input id="a" placeholder="Delivery address">
+<button class="btn" style="width:100%" id="po" onclick="placeOrder()">Place order</button></div></div>
+<div id="toast"></div>
+
+<script>
+const API = 'https://script.google.com/macros/s/AKfycbxnPinWL6ajJ6k9b4ZytcAfNL0BfZTXyicnHN1eDbUJiJ1j-n7EJCAbzWsFX3D7GNav/exec';   // Apps Script "Web app" URL
+const ICON = {Handbags:'👜',Shoes:'👟',Belts:'🪢',Jackets:'🧥',Jewellery:'💎',Sunglasses:'🕶️'};
+let products = [], cart = {}, cat = 'All';
+const $ = id => document.getElementById(id);
+const rs = n => 'Rs. ' + Number(n).toLocaleString();
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2600)}
+
+async function load(){
+  try{products=await (await fetch(API+'?action=products')).json();}catch(e){$('grid').innerHTML='<p>Products load nahi hue. API URL check karein.</p>';return}
+  products=products.filter(p=>p.status!=='Hidden');
+  const cats=['All',...new Set(products.map(p=>p.category))];
+  $('chips').innerHTML=cats.map(c=>`<button class="chip ${c===cat?'on':''}" onclick="setCat('${c}')">${c}</button>`).join('');
+  $('tiles').innerHTML=Object.keys(ICON).map(c=>`<div class="tile" onclick="setCat('${c}');location.hash='shop'">${ICON[c]}<span>${c}</span></div>`).join('');
+  render();
+}
+function setCat(c){cat=c;load()}
+function render(){
+  const list=products.filter(p=>cat==='All'||p.category===cat);
+  $('grid').innerHTML=list.map(p=>{
+    const out=p.status!=='Active'||Number(p.stock)<=0, low=!out&&Number(p.stock)<=3;
+    return `<div class="card"><div class="ph">${p.image_url?`<img src="${p.image_url}" alt="${p.name}">`:ICON[p.category]||'🛍️'}
+    ${out?'<span class="tag low">Sold out</span>':low?`<span class="tag low">Only ${p.stock} left</span>`:`<span class="tag">${p.category}</span>`}</div>
+    <div class="info"><small>${p.category}</small><h3>${p.name}</h3><div class="price">${rs(p.price)}</div>
+    <button ${out?'disabled':''} onclick="add('${p.id}')">${out?'Sold out':'Add to cart'}</button></div></div>`}).join('')||'<p>Is category mein abhi koi product nahi.</p>';
+}
+function add(id){const p=products.find(x=>x.id==id);cart[id]=Math.min((cart[id]||0)+1,Number(p.stock));upd();toast(p.name+' added to cart')}
+function chg(id,d){const p=products.find(x=>x.id==id);cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];if(cart[id]>p.stock)cart[id]=Number(p.stock);upd()}
+function upd(){
+  const ids=Object.keys(cart);let t=0;
+  $('cc').textContent=ids.reduce((s,i)=>s+cart[i],0);
+  $('items').innerHTML=ids.map(i=>{const p=products.find(x=>x.id==i);t+=p.price*cart[i];
+    return `<div class="line"><span>${p.name}<br><small>${rs(p.price)}</small></span><span class="qty"><button onclick="chg('${i}',-1)">−</button> ${cart[i]} <button onclick="chg('${i}',1)">+</button></span></div>`}).join('')||'<p>Cart khali hai.</p>';
+  $('total').textContent=ids.length?'Total: '+rs(t):'';$('form').style.display=ids.length?'block':'none';
+}
+function openCart(){$('drawer').classList.add('open');upd()}function closeCart(){$('drawer').classList.remove('open')}
+async function placeOrder(){
+  const name=$('n').value.trim(),phone=$('p').value.trim(),address=$('a').value.trim();
+  if(!name||!phone||!address)return toast('Naam, phone aur address zaroori hain');
+  $('po').disabled=true;$('po').textContent='Placing order…';
+  try{
+    const r=await (await fetch(API,{method:'POST',body:JSON.stringify({action:'order',name,phone,address,items:Object.keys(cart).map(id=>({id,qty:cart[id]}))})})).json();
+    if(r.ok){cart={};closeCart();toast('Order placed! ID: '+r.order_id);await load()}else toast(r.error||'Order fail hua');
+  }catch(e){toast('Network error, dobara try karein')}
+  $('po').disabled=false;$('po').textContent='Place order';
+}
+function sendMsg(){toast('Thank you! We will reply soon.');['cn','ce','cm'].forEach(i=>$(i).value='')}
+load();upd();
+</script></body></html>
